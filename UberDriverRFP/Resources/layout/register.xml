@@ -25,9 +25,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="UBER DRIVER"
                 android:gravity="center"
                 android:textSize="20sp"
+                android:text="UBER DRIVER"
                 android:layout_below="@+id/circeImageView1"
                 android:layout_alignParentBottom="true"
                 android:textColor="@color/uberWhite"/>

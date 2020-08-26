@@ -19,7 +19,7 @@ using UberDriverRFP.Helpers;
 
 namespace UberDriverRFP.Activities
 {
-    [Activity(Label = "RegistrationActivity", MainLauncher = true, Theme = "@style/UberTheme")]
+    [Activity(Label = "RegistrationActivity", Theme = "@style/UberTheme", MainLauncher = false)]
     public class RegistrationActivity : AppCompatActivity
     {
         TextInputLayout fullNameText;
@@ -32,6 +32,7 @@ namespace UberDriverRFP.Activities
         FirebaseAuth mAuth;
         FirebaseUser currentUser;
         TaskCompletionListener taskCompletionListener = new TaskCompletionListener();
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
