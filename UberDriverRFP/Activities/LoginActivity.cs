@@ -18,7 +18,7 @@ using UberDriverRFP.Helpers;
 
 namespace UberDriverRFP.Activities
 {
-    [Activity(Label = "LoginActivity", Theme = "@style/UberTheme", MainLauncher = true)]
+    [Activity(Label = "LoginActivity", Theme = "@style/UberTheme", MainLauncher = false)]
     public class LoginActivity : AppCompatActivity
     {
         Button loginButton;
@@ -29,7 +29,6 @@ namespace UberDriverRFP.Activities
         FirebaseDatabase database;
         FirebaseAuth mAuth;
         FirebaseUser currentUser;
-        TaskCompletionListener taskCompletionListener = new TaskCompletionListener();
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
