@@ -30,6 +30,9 @@ namespace UberDriverRFP.Activities
         FirebaseAuth mAuth;
         FirebaseUser currentUser;
 
+        Android.Support.V7.App.AlertDialog.Builder alert;
+        Android.Support.V7.App.AlertDialog alertDialog;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -69,6 +72,8 @@ namespace UberDriverRFP.Activities
             email = textInputEmail.EditText.Text;
             password = textInputPassword.EditText.Text;
 
+            ShowProgressDialogue();
+
             TaskCompletionListener taskCompletionListener = new TaskCompletionListener();
             taskCompletionListener.Success += TaskCompletionListener_Success;
             taskCompletionListener.Failure += TaskCompletionListener_Failure;
@@ -80,12 +85,32 @@ namespace UberDriverRFP.Activities
 
         private void TaskCompletionListener_Failure(object sender, EventArgs e)
         {
+            CloseProgressDialogue();
             Snackbar.Make(rootView, "Login failed", Snackbar.LengthShort).Show();
         }
 
         private void TaskCompletionListener_Success(object sender, EventArgs e)
         {
+            CloseProgressDialogue();
             StartActivity(typeof(MainActivity));
+        }
+
+        void ShowProgressDialogue()
+        {
+            alert = new Android.Support.V7.App.AlertDialog.Builder(this);
+            alert.SetView(Resource.Layout.progress);
+            alert.SetCancelable(false);
+            alertDialog = alert.Show();
+        }
+
+        void CloseProgressDialogue()
+        {
+            if(alert != null)
+            {
+                alertDialog.Dismiss();
+                alertDialog = null;
+                alert = null;
+            }
         }
     }
 }

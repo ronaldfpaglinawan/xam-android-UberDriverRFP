@@ -33,6 +33,10 @@ namespace UberDriverRFP.Activities
 
             if(currentUser == null)
             {
+                StartActivity(typeof(LoginActivity));
+            }
+            else
+            {
                 StartActivity(typeof(MainActivity));
             }
         }
